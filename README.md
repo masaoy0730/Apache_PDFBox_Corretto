@@ -1,5 +1,5 @@
 # apache_pdfbox_corretto
-Amazon Correttoを使えるDockerを使ってApache PDFBoxをインストールします。<br>
+Amazon Correttoを使えるDockerを使ってApache PDFBoxでPDFファイルのテキスト抽出を試します。<br>
 [Apache PDFBox - A Java PDF Library](https://pdfbox.apache.org/)<br>
 
 # Amazon CorrettoをDockerで動かす方法
