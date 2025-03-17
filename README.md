@@ -206,7 +206,7 @@ public class App {
 Mavenで直接Javaコードを実行するには、`exec-maven-plugin`を使用します。
 
 <!-- open属性なし -->
-<details><summary>サンプル（open属性なし）</summary>
+<details><summary>サンプル</summary>
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
