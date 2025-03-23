@@ -52,6 +52,53 @@ tarをインストール：
 sudo yum install tar
 ```
 
+---
+
+#### **コンテナを終了する**
+Dockerコンテナを終了するには、まずコンテナから抜けます。
+
+##### **方法**
+1. **コンテナ内で`exit`コマンドを実行**:
+   ```bash
+   exit
+   ```
+   - これにより、コンテナのセッションから抜け出し、ホスト環境に戻ります。
+   - コンテナは停止状態になります。
+
+2. **コンテナを明示的に停止**（必要に応じて）:
+   ```bash
+   docker stop <CONTAINER_IDまたはNAME>
+   ```
+   - 起動中のコンテナIDや名前は以下のコマンドで確認できます。
+     ```bash
+     docker ps
+     ```
+Dockerコンテナを再起動するには、以下の方法を使用します。
+### **再起動コマンド**
+Dockerコンテナを再起動するには、`docker restart`または`docker container restart`コマンドを使用します。
+
+##### **すべてのコンテナ（停止中も含む）の名前を確認**
+```bash
+docker ps -a --format '{{.Names}}'
+```
+
+##### **コマンド例**
+```bash
+docker restart <コンテナ名またはコンテナID>
+```
+または
+```bash
+docker container restart <コンテナ名またはコンテナID>
+```
+
+Dockerコンテナを再起動した後、ターミナルから`bash`を使うには、以下の手順を実行します。
+#### **コンテナ内で`bash`を使用する**
+再起動したコンテナ内で`bash`を使用するには、`docker exec`コマンドを使います。
+```bash
+docker exec -it <コンテナ名またはコンテナID> /bin/bash
+```
+---
+
 ### Apache Mavenのインストール
 bashを使ってLinux環境にMavenをインストールする手順です。<br>
 OSの名前やバージョン情報を確認します。<br>
@@ -478,26 +525,8 @@ docker stop <container_id>
 docker rm <container_id>
 docker run -it --name my-corretto amazoncorretto:11 /bin/bash
 ```
+----
 
-#### **コンテナを終了する**
-Dockerコンテナを終了するには、まずコンテナから抜けます。
-
-##### **方法**
-1. **コンテナ内で`exit`コマンドを実行**:
-   ```bash
-   exit
-   ```
-   - これにより、コンテナのセッションから抜け出し、ホスト環境に戻ります。
-   - コンテナは停止状態になります。
-
-2. **コンテナを明示的に停止**（必要に応じて）:
-   ```bash
-   docker stop <CONTAINER_IDまたはNAME>
-   ```
-   - 起動中のコンテナIDや名前は以下のコマンドで確認できます。
-     ```bash
-     docker ps
-     ```
 #### **コンテナの状態を保存する**
 変更した内容やインストールしたパッケージを保存するために、現在のコンテナ状態をDockerイメージとして保存します。
 
@@ -536,40 +565,4 @@ Dockerコンテナを終了するには、まずコンテナから抜けます�
 2. コンテナ内で変更が反映されていることを確認します。
 
 
-Dockerコンテナを再起動するには、以下の方法を使用します。
-### **再起動コマンド**
-Dockerコンテナを再起動するには、`docker restart`または`docker container restart`コマンドを使用します。
 
-##### **すべてのコンテナ（停止中も含む）の名前を確認**
-```bash
-docker ps -a --format '{{.Names}}'
-```
-
-##### **コマンド例**
-```bash
-docker restart <コンテナ名またはコンテナID>
-```
-または
-```bash
-docker container restart <コンテナ名またはコンテナID>
-```
-
-#### **コンテナの状態確認**
-再起動前後にコンテナの状態を確認するには、以下のコマンドを使用します。
-
-##### **実行中のコンテナ一覧**
-```bash
-docker ps
-```
-
-##### **すべてのコンテナ一覧（停止中も含む）**
-```bash
-docker ps -a
-```
-
-Dockerコンテナを再起動した後、ターミナルから`bash`を使うには、以下の手順を実行します。
-#### **コンテナ内で`bash`を使用する**
-再起動したコンテナ内で`bash`を使用するには、`docker exec`コマンドを使います。
-```bash
-docker exec -it <コンテナ名またはコンテナID> /bin/bash
-```
