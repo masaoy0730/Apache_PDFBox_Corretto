@@ -128,8 +128,6 @@ Mavenプロジェクトの作成
 ```
 mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
-bashでDockerコンテナを終了し、インストールしたものを保存するには以下の手順を実行します。<br>
-
 ---
 ### Javaの実行
 Javaの実行はHelloWorldで確認します。
